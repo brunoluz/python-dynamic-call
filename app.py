@@ -1,11 +1,10 @@
 import sys
-import pathlib
 import os
 
 
 def main():
-    current_dir = pathlib.Path(__file__).parent.absolute()
-    sys.path.append(os.path.join(current_dir, "plugins"))
+    plugins_dir = os.path.join(os.path.dirname(__file__), "plugins")
+    sys.path.append(plugins_dir)
 
     plugin01 = __import__("Plugin01")
     print(plugin01.execute())
